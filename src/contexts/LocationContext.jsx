@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const defaultVal = { lat: 17.4065,long: 78.4772 }
+const defaultVal = { lat: 17.4065,lng: 78.4772 }
 export const LocationContext = React.createContext(defaultVal);
 
 export const LocationProvider = ({children}) =>{
@@ -8,9 +8,19 @@ export const LocationProvider = ({children}) =>{
     ...defaultVal
   });
 
+  const changeLocation = (x,y) => {
+    console.log({
+      x, y
+    })
+    setLocation({
+      lat:x,
+      lng:y
+    })
+  }
+
   return (<LocationContext.Provider value={{
     ...location,
-    setLocation
+    changeLocation
   }}>
     {children}
   </LocationContext.Provider>
