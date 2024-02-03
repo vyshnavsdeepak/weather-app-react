@@ -1,5 +1,6 @@
 import './App.css'
 import LeafletMap from './components/Leaflet'
+import WeatherCard from './components/WeatherCard'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div className='h-[600px] bg-red-100'>
         <LeafletMap />
       </div>
+      <WeatherCard />
     </>
   )
 }
