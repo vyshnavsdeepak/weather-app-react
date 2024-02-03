@@ -1,7 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import getWeather from "../api/weather";
+import { LocationContext } from "../contexts/LocationContext";
 
 const WeatherCard = () => {
+  const { lat, long } = useContext(LocationContext);
+
   const [info, setInfo] = useState({
     city: "",
     temperature: "",
@@ -11,7 +14,7 @@ const WeatherCard = () => {
   React.useEffect(() => {
     const abortController = new AbortController();
     (async function () {
-      const weather = await getWeather({ lat: 17.4065,long: 78.4772 }, abortController.signal)
+      const weather = await getWeather({ lat,long }, abortController.signal)
 
       setInfo({
         city: "",
